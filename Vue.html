@@ -16,7 +16,12 @@
 			</span>
 		</div>
 		<div id="app-3">
-			<p v-if="visiable">现在你看到我了</p>
+			<p v-if="visible">现在你看到我了</p>
+			<template v-if="ok">
+				<h1>Title</h1>
+				<p>Paragraph 1</p>
+				<p>Paragraph 2</p>
+			</template>
 		</div>
 		<div id="app-4">
 			<ol>
