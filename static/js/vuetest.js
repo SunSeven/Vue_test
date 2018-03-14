@@ -24,7 +24,7 @@ var app3 = new Vue({
 	},
 	methods: {
 		hide_or_show: function(){
-			if(this.ok == true){
+			if(this.ok === true){
 				this.ok = false;
 				this.message = "你现在看不到我了！";
 			}
@@ -77,3 +77,21 @@ var app6 = new Vue({
 		console.log("This is a created function")
 	}
 });
+
+var app7 = new Vue({
+	el: "#app-7",
+	data: {
+		items: [
+			{msg: "One book"},
+			{msg: "Two books"}
+		]
+	}
+});
+
+var app8 = new Vue({
+	el: "#app-8",
+	data: {
+		checkedNames: [],
+		checked: false
+	}
+})
