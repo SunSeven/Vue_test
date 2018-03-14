@@ -19,7 +19,20 @@ var app3 = new Vue({
 	el: "#app-3",
 	data: {
 		visible: true,
-		ok: false
+		ok: true,
+		message: "你现在看到我了！"
+	},
+	methods: {
+		hide_or_show: function(){
+			if(this.ok == true){
+				this.ok = false;
+				this.message = "你现在看不到我了！";
+			}
+			else{
+				this.ok = true;
+				this.message = "你现在看到我了！";
+			}
+		}
 	}
 });
 

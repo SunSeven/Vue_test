@@ -3,7 +3,9 @@
 		<title>Vue Test</title>
 		<!-- <script src="https://unpkg.com/vue"></script>  <!-- # Vue 2.x --> 
 		<!-- script src="https://cdn.jsdelivr.net/npm/vue"></script> <!-- # Vue 2.x -->
+		<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
 		<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+		<script src="https://unpkg.com/element-ui/lib/index.js"></script>
 	</head>
 	<body>
 		<div id="app">
@@ -16,12 +18,13 @@
 			</span>
 		</div>
 		<div id="app-3">
-			<p v-if="visible">现在你看到我了</p>
+			<p v-if="visible">{{ message }}</p>
 			<template v-if="ok">
 				<h1>Title</h1>
 				<p>Paragraph 1</p>
 				<p>Paragraph 2</p>
 			</template>
+			<el-button @click="hide_or_show">切换</el-button>
 		</div>
 		<div id="app-4">
 			<ol>
@@ -39,6 +42,6 @@
 				<todo-item v-for='item in groceryList' v-bind:todo='item' v-bind:key='item.id'></todo-item>
 			</ol>
 		</div>
-		<script src="./static/js/vuetest.js"></script>
 	</body>
+	<script src="./static/js/vuetest.js"></script>
 </html>
