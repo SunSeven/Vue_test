@@ -60,8 +60,8 @@ var app5 = new Vue({
 });
 
 Vue.component('todo-item', {
-	props: ['todo'],
-	template: "<li>{{ todo.text }}</li>"
+	props: ['todoItem'],
+	template: "<li>{{ todoItem.text }}</li>"
 });
 
 var app6 = new Vue({
@@ -93,5 +93,76 @@ var app8 = new Vue({
 	data: {
 		checkedNames: [],
 		checked: false
+	}
+})
+
+Vue.component("kebabcase", {
+	props: ["todoMessage"],
+	template: "<li>{{ todoMessage }}</li>"
+})
+
+var app9 = new Vue({
+	el: "#app-9"
+})
+
+Vue.component("camelcase", {
+	props: ["todoMessage"],
+	template: "<li>{{ todoMessage }}</li>"
+})
+
+var app10 = new Vue({
+	el: "#app-10",
+	data: {
+		htmlStr: "<camelcase>使用算字符串模板</camelcase>"
+		// htmlStr: "<div>CamelCase</div>"
+	}
+})
+
+Vue.component("button-counter", {
+	template: "<el-button @click=\"increamentCounter\">{{ counter }}</el-button>",
+	data: function(){
+	  return {counter: 0}
+	},
+	methods: {
+		increamentCounter: function(){
+			this.counter += 1;
+			this.$emit("inc");
+		}
+	}
+})
+
+var counter_event_example = new Vue({
+	el: "#counter-event-example",
+	data: {
+		totalcount: 0,
+	},
+	methods:{
+		incTotal: function(){
+			this.totalcount += 1;
+		}
+	}
+})
+
+Vue.component("message-button", {
+	template: '<div><input type="text" v-model="message" /><br><el-button v-on:click="handleSendMsg">Send</el-button></div>',
+	data: function(){
+		return {message: "test message"}
+	},
+	methods: {
+		handleSendMsg: function(){
+			this.$emit("message", {message: this.message})
+		}
+	}
+})
+
+var message_event_example = new Vue({
+	el: "#message-event-example",
+	data: {
+		messages: []
+	},
+	methods: {
+		handleMessage: function(payload){
+			this.messages.push(payload.message)
+		}
 	}
 })

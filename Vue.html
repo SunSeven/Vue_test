@@ -39,7 +39,7 @@
 		</div>
 		<div id="app-6">
 			<ol>
-				<todo-item v-for='item in groceryList' v-bind:todo='item' v-bind:key='item.id'></todo-item>
+				<todo-item v-for='item in groceryList' v-bind:todo-item='item' v-bind:key='item.id'></todo-item>
 			</ol>
 		</div>
 		<div id="app-7">
@@ -62,6 +62,27 @@
 			<label for="jack">Mike</label>
 			<br>
 			<span>Checked names: {{ checkedNames }}</span>
+		</div>
+		<div id="app-9"><!-- 非字符串模板 -->
+			<ul>
+				<kebabcase todo-message="hello!"></kebabcase>
+			</ul>	
+		</div>
+		<div id="app-10"><!-- 字符串模板 -->
+			<ul>
+				<div v-html="htmlStr"></div>
+				<camelcase todo-message="Bye Bye!"></camelcase>
+			</ul>	
+		</div>
+		<div id="counter-event-example">
+			TOTAL COUNT: {{ totalcount }}<br>
+			<button-counter @inc="incTotal"></button-counter>
+			<button-counter @inc="incTotal"></button-counter>
+		</div>
+		<br>
+		<div id="message-event-example">
+			<p v-for="msg in messages">{{ msg }}</p>
+			<message-button v-on:message="handleMessage"></message-button>
 		</div>
 	</body>
 	<script src="./static/js/vuetest.js"></script>
